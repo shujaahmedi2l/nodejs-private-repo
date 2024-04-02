@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: 696960135893.dkr.ecr.eu-west-1.amazonaws.com/nodejs-private-repo
-  tag: 'latest'
+  tag: 8c6dd22d017ee374bea98c5c515ba737e23f7787
   pullPolicy: Always
 
 service:
