@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "nodejs-private-repo"
+  description: "nothing special"
+  annotations:
+    github.com/project-slug: user:default/shujaahmedi2l/nodejs-private-repo
+    argocd/app-name: nodejs-private-repo
+  links:
+    - url: "dashboard.onexidp.com"
+      title: Web Application
+      icon: LaunchIcon
+spec:
+  type: service
+  owner: guests
+  lifecycle: experimental
