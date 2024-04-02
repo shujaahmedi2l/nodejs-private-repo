@@ -19,16 +19,17 @@ jobs:
           sudo cp argo-ci-cd/${{ secrets.ARGO_CI_CD_YAML_NAME }} /tmp/${{ secrets.ARGO_CI_CD_YAML_NAME }}
           sudo cp ecr/${{ secrets.ECR_YAML_NAME }} /tmp/${{ secrets.ECR_YAML_NAME }}
           cd /tmp
+          sudo git config user.email "you@example.com"
+          sudo git config user.name "Your Name"
           sudo git clone https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
-          ls -la
+          echo 'Git: Clone completed'
           sudo cp /tmp/${{ secrets.ARGO_CI_CD_YAML_NAME }} /tmp/main/onexidp/apps/${{ secrets.ARGO_CI_CD_YAML_NAME }}
           sudo cp /tmp/${{ secrets.ECR_YAML_NAME }} /tmp/main/aws-resources/${{ secrets.ECR_YAML_NAME }}
           cd main
-          ls -la
+          echo 'Git: Adding the file'
           sudo git add .
+          echo 'Git: commiting the values.yaml changes'
           sudo git commit -m "Updating apps/${{ secrets.ARGO_CI_CD_YAML_NAME }} file"
-          sudo git config user.email "you@example.com"
-          sudo git config user.name "Your Name"
           sudo git push https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
 
       - name: Setup AWS ECR Details
