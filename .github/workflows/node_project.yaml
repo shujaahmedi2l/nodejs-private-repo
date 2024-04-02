@@ -20,12 +20,12 @@ jobs:
           sudo cp ecr/${{ secrets.ECR_YAML_NAME }} /tmp/${{ secrets.ECR_YAML_NAME }}
           cd /tmp
           sudo git clone https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
-          sudo git config user.email "you@example.com"
-          sudo git config user.name "Your Name"
           echo 'Git: Clone completed'
           sudo cp /tmp/${{ secrets.ARGO_CI_CD_YAML_NAME }} /tmp/main/onexidp/apps/${{ secrets.ARGO_CI_CD_YAML_NAME }}
           sudo cp /tmp/${{ secrets.ECR_YAML_NAME }} /tmp/main/aws-resources/${{ secrets.ECR_YAML_NAME }}
           cd main
+          sudo git config user.email "you@example.com"
+          sudo git config user.name "Your Name"
           echo 'Git: Adding the file'
           sudo git add .
           echo 'Git: commiting the values.yaml changes'
